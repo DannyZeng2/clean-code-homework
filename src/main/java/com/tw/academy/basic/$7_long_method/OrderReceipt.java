@@ -15,10 +15,8 @@ public class OrderReceipt {
         this.order = order;
     }
 
-    //todo: rename -- Tom
     public String printReceipt() {
         StringBuilder output = new StringBuilder();
-
         printHeaders(output);
         printCustomerInfo(output);
 
