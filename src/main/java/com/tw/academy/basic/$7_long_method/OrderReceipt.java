@@ -27,7 +27,7 @@ public class OrderReceipt {
         for (LineItem lineItem : order.getLineItems()) {
             printLineItem(output, lineItem);
             double salesTax = lineItem.totalAmount() * TEN_PERCENT_TAX_RATE;
-            totSalesTx = calculateToaltSalesTax(totSalesTx, salesTax);
+            totSalesTx = calculateTotalSalesTax(totSalesTx, salesTax);
             tot = calculateTotalAmountOfLineItem(tot, lineItem, salesTax);
         }
 
@@ -37,7 +37,7 @@ public class OrderReceipt {
         return output.toString();
     }
 
-    private double calculateToaltSalesTax(double totSalesTx, double salesTax) {
+    private double calculateTotalSalesTax(double totSalesTx, double salesTax) {
         totSalesTx += salesTax;
         return totSalesTx;
     }
