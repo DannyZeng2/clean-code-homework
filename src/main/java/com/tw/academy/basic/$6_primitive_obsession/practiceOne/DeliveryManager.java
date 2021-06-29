@@ -7,35 +7,27 @@ public class DeliveryManager {
     Address fromAddressObj;
 
     public DeliveryManager(Address fromAddressObj,
-        Address toAddress) {
+        Address toAddressObj) {
         this.toAddressObj =toAddressObj;
         this.fromAddressObj = fromAddressObj;
         //this.fromAddress = fromAddress.getAddress();
     }
 
     public DeliverCenter allocate(){
-        if (isSameProvince() && isSameCity()){
+        if (getProvince(toAddressObj).equals(getProvince(fromAddressObj)) && getCity(toAddressObj).equals(getCity(fromAddressObj))){
             return DeliverCenter.LOCAL;
         }
-        if (isSameProvince()) {
+        if (getProvince(toAddressObj).equals(getProvince(fromAddressObj))) {
             return DeliverCenter.PROVINCE;
         }
         return DeliverCenter.FOREIGN;
     }
 
-    private boolean isSameCity() {
-        return getCity(toAddress).equals(getCity(fromAddress));
+    private String getCity(Address address) {
+        return address.getAddress().substring(address.getAddress().indexOf("Province") + 1, address.getAddress().indexOf("City"));
     }
 
-    private boolean isSameProvince() {
-        return getProvince(toAddress).equals(getProvince(fromAddress));
-    }
-
-    private String getCity(String address) {
-        return address.substring(address.indexOf("Province") + 1, address.indexOf("City"));
-    }
-
-    private String getProvince(String address) {
-        return address.substring(0, address.indexOf("Province"));
+    private String getProvince(Address address) {
+        return address.getAddress().substring(0, address.getAddress().indexOf("Province"));
     }
 }
