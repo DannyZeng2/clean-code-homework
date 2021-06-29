@@ -11,4 +11,12 @@ public class Address {
     public String getAddress() {
         return address;
     }
+
+    String getCity() {
+        return getAddress().substring(getAddress().indexOf("Province") + 1, getAddress().indexOf("City"));
+    }
+
+    String getProvince() {
+        return getAddress().substring(0, getAddress().indexOf("Province"));
+    }
 }
