@@ -4,4 +4,5 @@
 3. 长方法：   
    抽取printHeaders方法并删除注释以提高可读性
    抽取printCustomerInfo方法并删除注释以提高可读性
+   抽取printStateTax方法并删除注释以提高可读性
    
