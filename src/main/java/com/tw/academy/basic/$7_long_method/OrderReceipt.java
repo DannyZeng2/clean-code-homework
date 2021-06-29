@@ -28,18 +28,20 @@ public class OrderReceipt {
             printLineItem(output, lineItem);
 
             // calculate sales tax @ rate of 10%
-
             double salesTax = lineItem.totalAmount() * TEN_PERCENT_TAX_RATE;
             totSalesTx += salesTax;
-
-            // calculate total amount of lineItem = price * quantity + 10 % sales tax
-            tot += lineItem.totalAmount() + salesTax;
+            tot = calculateTotalAmountOfLineItem(tot, lineItem, salesTax);
         }
 
         printStateTax(output, totSalesTx);
         printTotalAmount(output, tot);
 
         return output.toString();
+    }
+
+    private double calculateTotalAmountOfLineItem(double tot, LineItem lineItem, double salesTax) {
+        tot += lineItem.totalAmount() + salesTax;
+        return tot;
     }
 
     private void printLineItem(StringBuilder output, LineItem lineItem) {

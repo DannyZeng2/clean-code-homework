@@ -8,5 +8,6 @@
    抽取printStateTax方法并删除注释以提高可读性
    抽取printTotalAmount方法并删除注释以提高可读性
    抽取printLineItem方法并删除注释以提高可读性
+   抽取calculateTotalAmountOfLineItem方法并删除注释以提高可读性
    
    
