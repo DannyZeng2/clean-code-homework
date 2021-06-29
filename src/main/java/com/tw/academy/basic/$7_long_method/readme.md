@@ -11,4 +11,7 @@
    抽取calculateTotalAmountOfLineItem方法并删除注释以提高可读性
    抽取calculateToaltSalesTax方法并删除注释以提高可读性
    
+### LineItem
+1. 死亡代码：删除无用的super()
+   
    
