@@ -19,4 +19,12 @@ public class Address {
     String getProvince() {
         return getAddress().substring(0, getAddress().indexOf("Province"));
     }
+
+    boolean isSameProvince(Address toAddress) {
+        return toAddress.getProvince().equals(getProvince());
+    }
+
+    boolean isSameCity(Address toAddress) {
+        return toAddress.getCity().equals(getCity());
+    }
 }
