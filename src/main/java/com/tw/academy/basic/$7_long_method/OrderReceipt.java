@@ -9,6 +9,7 @@ package com.tw.academy.basic.$7_long_method;
  */
 public class OrderReceipt {
     private Order order;
+    private static final double TEN_PERCENT_TAX_RATE = .10;
 
     public OrderReceipt(Order order) {
         this.order = order;
@@ -21,21 +22,14 @@ public class OrderReceipt {
         printHeaders(output);
         printCustomerInfo(output);
 
-        // prints lineItems
         double totSalesTx = 0d;
         double tot = 0d;
         for (LineItem lineItem : order.getLineItems()) {
-            output.append(lineItem.getDescription());
-            output.append('\t');
-            output.append(lineItem.getPrice());
-            output.append('\t');
-            output.append(lineItem.getQuantity());
-            output.append('\t');
-            output.append(lineItem.totalAmount());
-            output.append('\n');
+            printLineItem(output, lineItem);
 
             // calculate sales tax @ rate of 10%
-            double salesTax = lineItem.totalAmount() * .10;
+
+            double salesTax = lineItem.totalAmount() * TEN_PERCENT_TAX_RATE;
             totSalesTx += salesTax;
 
             // calculate total amount of lineItem = price * quantity + 10 % sales tax
@@ -46,6 +40,17 @@ public class OrderReceipt {
         printTotalAmount(output, tot);
 
         return output.toString();
+    }
+
+    private void printLineItem(StringBuilder output, LineItem lineItem) {
+        output.append(lineItem.getDescription());
+        output.append('\t');
+        output.append(lineItem.getPrice());
+        output.append('\t');
+        output.append(lineItem.getQuantity());
+        output.append('\t');
+        output.append(lineItem.totalAmount());
+        output.append('\n');
     }
 
     private void printTotalAmount(StringBuilder output, double tot) {
