@@ -4,9 +4,9 @@ public class DeliveryManager {
     Address toAddress;
     Address fromAddress;
 
-    public DeliveryManager(Address fromAddressObj, Address toAddressObj) {
-        this.toAddress =toAddressObj;
-        this.fromAddress = fromAddressObj;
+    public DeliveryManager(Address fromAddress, Address toAddress) {
+        this.toAddress =toAddress;
+        this.fromAddress = fromAddress;
     }
 
     public DeliverCenter allocate(){
