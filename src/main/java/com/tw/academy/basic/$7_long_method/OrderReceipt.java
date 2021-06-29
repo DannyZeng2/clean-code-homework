@@ -19,7 +19,6 @@ public class OrderReceipt {
         StringBuilder output = new StringBuilder();
 
         printHeaders(output);
-
         printCustomerInfo(output);
 
         // prints lineItems
@@ -44,10 +43,13 @@ public class OrderReceipt {
         }
 
         printStateTax(output, totSalesTx);
+        printTotalAmount(output, tot);
 
-        // print total amount
-        output.append("Total Amount").append('\t').append(tot);
         return output.toString();
+    }
+
+    private void printTotalAmount(StringBuilder output, double tot) {
+        output.append("Total Amount").append('\t').append(tot);
     }
 
     private void printStateTax(StringBuilder output, double totSalesTx) {
